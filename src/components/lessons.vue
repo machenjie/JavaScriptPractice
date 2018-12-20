@@ -28,7 +28,7 @@
 
     #lessons {
         display: inline-block;
-        width: 40em;
+        width: 40rem;
         vertical-align: middle;
     }
     .lesson-item {
@@ -40,7 +40,7 @@
         margin-bottom: 2px;
         padding-left: 4px;
         border-radius: 2px;
-        font-size: 1.1em;
+        font-size: 1.1rem;
         font-weight: bold;
         cursor: pointer;
         text-decoration: none;
@@ -52,7 +52,7 @@
         margin-bottom: 2px;
         padding-left: 16px;
         border-radius: 2px;
-        font-size: 1em;
+        font-size: 1rem;
         cursor: pointer;
         text-decoration: none;
         color: white;

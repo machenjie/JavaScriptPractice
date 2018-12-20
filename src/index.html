@@ -11,9 +11,9 @@
     <div id="app" class="container-fluid">
         <div class="lessons-title">
             GOOD GOOD STUDY! DAY DAY UP!
+            <a v-if="homeShow" class="home" @click="$router.push('/')">&#215;</a>
         </div>
-        <transition name="component-fade" mode="out-in">
-            <lessons :lesson-list='lessonList'></lessons>
+        <transition name="fade" mode="out-in">
             <router-view></router-view>
         </transition>
     </div>
@@ -26,18 +26,36 @@
         text-align: center;
     }
     .lessons-title {
+        position: -webkit-sticky; /* Safari */
+        position: sticky;
+        top: 0;
         margin-top: 10px;
         margin-bottom: 10px;
         text-align: center;
-        font-size: 300%;
+        vertical-align: middle;
+        font-size: 3rem;
         font-weight: bold;
         color: #ff5514;
     }
-    .component-fade-enter-active, .component-fade-leave-active {
-        transition: opacity .3s ease;
+    .home{
+        display: inline-block;
+        position: absolute;
+        right: 1px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        text-align: center;
+        vertical-align: middle;
+        font-size: 2rem;
+        font-weight: bold;
+        color: #ff9119;
+        cursor: pointer;
     }
-    .component-fade-enter, .component-fade-leave-to{
+    .fade-enter-active, .fade-leave-active {
+        transition: all .5s;
+    }
+    .fade-enter, .fade-leave-to {
         opacity: 0;
     }
+
 </style>
 </html>
