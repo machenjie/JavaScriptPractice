@@ -9,6 +9,10 @@ const routes = [
     { path: '/div-control', component: DIVControl },
 ];
 
+const router = new VueRouter({
+    routes,
+});
+
 new Vue({
     el:"#app",
     data: {
@@ -109,5 +113,5 @@ new Vue({
     components:{
         lessons,
     },
-    routes,
+    router,
 });
