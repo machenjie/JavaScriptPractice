@@ -8,7 +8,7 @@
     let lessonList = [
         {key:"1", show: true, infoList:[
                 {key: "1", content: "Control the Div attribute", path: "div-control"},
-                {key: "2", content: "Web page skinning", path: "to-do"},
+                {key: "2", content: "Web page skinning", path: "web-skin"},
                 {key: "3", content: "The function receives the parameters and pops up", path: "to-do"},
                 {key: "4", content: "Turn three Divs into red with a loop", path: "to-do"},
                 {key: "5", content: "Mouse move in/out to change style", path: "to-do"},
