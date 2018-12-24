@@ -1,11 +1,13 @@
 <template>
-    <div>
-        <div>
-            <div class="skin" v-for="skin in skinList" :key="skin.key" :style="skin.style">
+    <div id="root">
+        <div id="skin-area">
+            <div class="skin" v-for="skin in skinList" :key="skin.key" :style="skin.style" @click="selectSkinKey=skin.key">
+                <div id="select" v-if="selectSkinKey===skin.key">
+                </div>
             </div>
         </div>
-        <div>
-            <div class="tab" v-for="tab in tabList" :key="tab.key" :style="tab.style">
+        <div id="tab-area">
+            <div class="tab" :class='{"tab-border":tab.key!==tabList[tabList.length-1].key}' v-for="tab in tabList" :key="tab.key" :style="tab.style">
                 <a>{{tab.text}}</a>
             </div>
         </div>
@@ -18,38 +20,44 @@
         data: function () {
             let skinList = [
                 {key: 1, style: {
-                        backgroundColor: "#FF0000",
+                        backgroundColor: "#ff2c36",
                     }},
                 {key: 2, style: {
-                        backgroundColor: "#00FF00",
+                        backgroundColor: "#217747",
                     }},
                 {key: 3, style: {
-                        backgroundColor: "#0000FF",
+                        backgroundColor: "#545fcb",
                     }},
             ];
-            let tabList = [
-                {key: 1, text: 'News', style: {
-                        backgroundColor: "#FF0000",
-                    }},
-                {key: 2, text: 'Amuse', style: {
-                        backgroundColor: "#FF0000",
-                    }},
-                {key: 3, text: 'Sports', style: {
-                        backgroundColor: "#FF0000",
-                    }},
-                {key: 4, text: 'Film', style: {
-                        backgroundColor: "#FF0000",
-                    }},
-                {key: 5, text: 'Music', style: {
-                        backgroundColor: "#FF0000",
-                    }},
-                {key: 6, text: 'Travel', style: {
-                        backgroundColor: "#FF0000",
-                    }},
-            ];
+            let selectSkinKey = 1;
             return {
                 skinList,
-                tabList,
+                selectSkinKey,
+            }
+        },
+        computed: {
+            tabList: function () {
+                let backgroundColor = this.skinList[this.selectSkinKey-1].style.backgroundColor;
+                return [
+                    {key: 1, text: 'News', style: {
+                            backgroundColor,
+                        }},
+                    {key: 2, text: 'Amuse', style: {
+                            backgroundColor,
+                        }},
+                    {key: 3, text: 'Sports', style: {
+                            backgroundColor,
+                        }},
+                    {key: 4, text: 'Film', style: {
+                            backgroundColor,
+                        }},
+                    {key: 5, text: 'Music', style: {
+                            backgroundColor,
+                        }},
+                    {key: 6, text: 'Travel', style: {
+                            backgroundColor,
+                        }},
+                ];
             }
         }
     }
@@ -57,10 +65,42 @@
 
 <style scoped>
 
+    #root{
+        display: inline-block;
+        text-align: left;
+    }
+    #skin-area{
+    }
     .skin{
         display: inline-block;
+        width: 14px;
+        height: 14px;
+        margin-left: 5px;
+        margin-right: 5px;
+        margin-bottom: 5px;
+        vertical-align: middle;
+        cursor: pointer;
+    }
+    #select{
+        display: block;
+        margin: 4px 4px 4px 4px;
+        width: 6px;
+        height: 6px;
+        background-color: #ffffff;
+    }
+    #tab-area{
+        display: inline-block;
+        background-color: #ffffff;
+        border: 4px solid #ffffff;
     }
     .tab{
         display: inline-block;
+        width: 100px;
+        font-weight: bold;
+        color: #ffffff;
+        text-align: center;
+    }
+    .tab-border{
+        border-right: 4px solid #ffffff;
     }
 </style>

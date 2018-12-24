@@ -11,10 +11,12 @@
     <div id="app" class="container-fluid">
         <div class="lessons-title">
             GOOD GOOD STUDY! DAY DAY UP!
-            <a v-if="homeShow" class="home" @click="$router.push('/')">&#215;</a>
+            <a v-if="homeShow" class="home" @click="$router.go(-1)">&#215;</a>
         </div>
         <transition name="fade" mode="out-in">
-            <router-view></router-view>
+            <keep-alive :include="/home-page/">
+                <router-view></router-view>
+            </keep-alive>
         </transition>
     </div>
 </body>
@@ -56,6 +58,5 @@
     .fade-enter, .fade-leave-to {
         opacity: 0;
     }
-
 </style>
 </html>

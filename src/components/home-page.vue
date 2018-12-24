@@ -9,13 +9,12 @@
         {key:"1", show: true, infoList:[
                 {key: "1", content: "Control the Div attribute", path: "div-control"},
                 {key: "2", content: "Web page skinning", path: "web-skin"},
-                {key: "3", content: "The function receives the parameters and pops up", path: "to-do"},
-                {key: "4", content: "Turn three Divs into red with a loop", path: "to-do"},
-                {key: "5", content: "Mouse move in/out to change style", path: "to-do"},
-                {key: "6", content: "Remember the password prompt box", path: "to-do"},
+                {key: "3", content: "Invoke function with the input parameters", path: "func-invoke"},
+                {key: "4", content: "Mouse move in/out to change style", path: "mouse-over"},
+                {key: "5", content: "Tooltip use", path: "tool-tip"},
             ]},
         {key:"2", show: false, infoList:[
-                {key: "1", content: "Baidu input method", path: "to-do"},
+                {key: "1", content: "Dropdown use", path: "dropdown"},
                 {key: "2", content: "Click on Div to display its innerHTML", path: "to-do"},
                 {key: "3", content: "Find the sum of all the numbers in the array", path: "to-do"},
                 {key: "4", content: "Pop-up layer effect", path: "to-do"},
