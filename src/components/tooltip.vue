@@ -1,5 +1,8 @@
 <template>
-    <div id="root" data-toggle="tooltip" title="do not use this function on public computers!" data-placement="bottom">
+    <div id="root"
+         data-toggle="tooltip"
+         title="do not use this function on public computers!"
+         data-placement="bottom">
         <input id="remember" type="checkbox" name="remember"/>
         <label id="remember-label"for="remember">remember me</label>
     </div>
@@ -30,18 +33,26 @@
     }
 </style>
 <style>
+    .tooltip{
+        opacity: 0.7 !important; /*Make the entire tooltip not transparent*/
+    }
+    .bs-tooltip-top .arrow::before, .bs-tooltip-auto[x-placement^="top"] .arrow::before {
+        border-top-color: #fac41a  !important; /*change the triangle color when data-placement="top"*/
+    }
+    .bs-tooltip-right .arrow::before, .bs-tooltip-auto[x-placement^="right"] .arrow::before {
+        border-right-color: #fac41a  !important; /*change the triangle color when data-placement="right"*/
+    }
+    .bs-tooltip-bottom .arrow::before, .bs-tooltip-auto[x-placement^="bottom"] .arrow::before {
+        border-bottom-color: #fac41a  !important; /*change the triangle color when data-placement="bottom"*/
+    }
+    .bs-tooltip-left .arrow::before, .bs-tooltip-auto[x-placement^="left"] .arrow::before {
+        border-left-color: #fac41a  !important; /*change the triangle color when data-placement="left"*/
+    }
     .tooltip-inner{
         background-color: #fac41a !important; /*modify background color*/
         text-align: left !important; /*Font left aligned*/
         color:#363636 !important; /*font color*/
-        border:1px solid #000000; /*add boder*/
+        border:1px solid #fac41a ; /*add boder*/
         max-width: 400px !important; /*Modify width*/
-    }
-    .tooltip-arrow{
-        border-bottom-color: #fac41a !important;/*Modify the color of the triangle*/
-        opacity: 0;/*Triangle transparent*/
-    }
-    .tooltip{
-        opacity: 1 !important; /*Make the entire tooltip opaque*/
     }
 </style>

@@ -6,7 +6,8 @@ import DIVControl from "./components/div-control";
 import WebSkin from "./components/web-skin";
 import MouseOver from "./components/mouse-over";
 import ToolTip from "./components/tooltip";
-import DropDown from "./components/dropdown"
+import DropDown from "./components/dropdown";
+import InnerHTML from "./components/inner-html";
 import FuncInvoke from "./components/func-invoke";
 
 Vue.use(VueRouter);
@@ -19,6 +20,7 @@ const routes = [
     { path: '/mouse-over', component: MouseOver},
     { path: '/tool-tip', component: ToolTip},
     { path: '/dropdown', component: DropDown},
+    { path: '/inner-html', component: InnerHTML},
     { path: '/to-do', component: TODO },
 ];
 

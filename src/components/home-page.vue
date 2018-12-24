@@ -15,7 +15,7 @@
             ]},
         {key:"2", show: false, infoList:[
                 {key: "1", content: "Dropdown use", path: "dropdown"},
-                {key: "2", content: "Click on Div to display its innerHTML", path: "to-do"},
+                {key: "2", content: "Access innerHTML", path: "inner-html"},
                 {key: "3", content: "Find the sum of all the numbers in the array", path: "to-do"},
                 {key: "4", content: "Pop-up layer effect", path: "to-do"},
                 {key: "5", content: "Function arguments, changing the value of any Div attribute", path: "to-do"},
