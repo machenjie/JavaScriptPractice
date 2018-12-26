@@ -57,6 +57,7 @@
 <style scoped>
     .news{
         display: inline-block;
+        width: 100%;
         padding: 5px 5px 5px 5px;
         margin: 5px auto 5px auto;
         border: 1px solid #707070;

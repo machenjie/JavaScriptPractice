@@ -8,6 +8,8 @@ import MouseOver from "./components/mouse-over";
 import ToolTip from "./components/tooltip";
 import DropDown from "./components/dropdown";
 import InnerHTML from "./components/inner-html";
+import SumArray from "./components/sum-array";
+import PopupDialog from "./components/popup-dialog";
 import FuncInvoke from "./components/func-invoke";
 
 Vue.use(VueRouter);
@@ -21,6 +23,8 @@ const routes = [
     { path: '/tool-tip', component: ToolTip},
     { path: '/dropdown', component: DropDown},
     { path: '/inner-html', component: InnerHTML},
+    { path: '/sum-array', component: SumArray},
+    { path: "/popup-dialog", component: PopupDialog},
     { path: '/to-do', component: TODO },
 ];
 

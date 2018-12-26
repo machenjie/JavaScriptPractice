@@ -15,9 +15,9 @@
             ]},
         {key:"2", show: false, infoList:[
                 {key: "1", content: "Dropdown use", path: "dropdown"},
-                {key: "2", content: "Access innerHTML", path: "inner-html"},
-                {key: "3", content: "Find the sum of all the numbers in the array", path: "to-do"},
-                {key: "4", content: "Pop-up layer effect", path: "to-do"},
+                {key: "2", content: "Access innerHTML and popover", path: "inner-html"},
+                {key: "3", content: "Sum of all the numbers", path: "sum-array"},
+                {key: "4", content: "Pop-up dialog", path: "popup-dialog"},
                 {key: "5", content: "Function arguments, changing the value of any Div attribute", path: "to-do"},
                 {key: "6", content: "Picture list: mouse movement in/out to change picture transparency", path: "to-do"},
                 {key: "7", content: "Easy tab", path: "to-do"},
