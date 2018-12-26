@@ -8,7 +8,7 @@
             <a class="dropdown-item">Copy</a>
             <a class="dropdown-item">Find</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item1">Select All</a>
+            <a class="dropdown-item">Select All</a>
         </div>
     </div>
 </template>
