@@ -10,6 +10,7 @@ import DropDown from "./components/dropdown";
 import InnerHTML from "./components/inner-html";
 import SumArray from "./components/sum-array";
 import PopupDialog from "./components/popup-dialog";
+import CSSModify from "./components/css-modify";
 import FuncInvoke from "./components/func-invoke";
 
 Vue.use(VueRouter);
@@ -24,7 +25,8 @@ const routes = [
     { path: '/dropdown', component: DropDown},
     { path: '/inner-html', component: InnerHTML},
     { path: '/sum-array', component: SumArray},
-    { path: "/popup-dialog", component: PopupDialog},
+    { path: '/popup-dialog', component: PopupDialog},
+    { path: '/css-modify', component: CSSModify},
     { path: '/to-do', component: TODO },
 ];
 

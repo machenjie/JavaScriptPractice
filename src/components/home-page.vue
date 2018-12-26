@@ -18,7 +18,7 @@
                 {key: "2", content: "Access innerHTML and popover", path: "inner-html"},
                 {key: "3", content: "Sum of all the numbers", path: "sum-array"},
                 {key: "4", content: "Pop-up dialog", path: "popup-dialog"},
-                {key: "5", content: "Function arguments, changing the value of any Div attribute", path: "to-do"},
+                {key: "5", content: "Modify the css of the div", path: "css-modify"},
                 {key: "6", content: "Picture list: mouse movement in/out to change picture transparency", path: "to-do"},
                 {key: "7", content: "Easy tab", path: "to-do"},
                 {key: "8", content: "Easy JS Almanac", path: "to-do"},
