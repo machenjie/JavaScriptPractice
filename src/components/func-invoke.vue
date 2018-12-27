@@ -5,9 +5,9 @@
             <input id="first" type="text" class="form-control" v-model="firstPara" name="first-para"/>
             <label for="second">Second:</label>
             <input id="second" type="text" class="form-control" v-model="secondPara" name="second-para"/>
-            <sapn id="equal" :style='{visibility: concat !== ""?"visible":"hidden"}'>
+            <div id="equal" :style='{visibility: concat !== ""?"visible":"hidden"}'>
                 =
-            </sapn>
+            </div>
             <div id="result" :style='{visibility: concat !== ""?"visible":"hidden"}'>
                 {{concat}}
             </div>
@@ -48,6 +48,7 @@
     }
 
     #equal{
+        display: inline-block;
         margin: 10px 10px 10px 10px;
     }
 

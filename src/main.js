@@ -11,6 +11,7 @@ import InnerHTML from "./components/inner-html";
 import SumArray from "./components/sum-array";
 import PopupDialog from "./components/popup-dialog";
 import CSSModify from "./components/css-modify";
+import PictureOpacity from "./components/picture-opacity";
 import FuncInvoke from "./components/func-invoke";
 
 Vue.use(VueRouter);
@@ -27,6 +28,7 @@ const routes = [
     { path: '/sum-array', component: SumArray},
     { path: '/popup-dialog', component: PopupDialog},
     { path: '/css-modify', component: CSSModify},
+    { path: '/picture-opacity', component: PictureOpacity},
     { path: '/to-do', component: TODO },
 ];
 

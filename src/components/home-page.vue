@@ -19,7 +19,7 @@
                 {key: "3", content: "Sum of all the numbers", path: "sum-array"},
                 {key: "4", content: "Pop-up dialog", path: "popup-dialog"},
                 {key: "5", content: "Modify the css of the div", path: "css-modify"},
-                {key: "6", content: "Picture list: mouse movement in/out to change picture transparency", path: "to-do"},
+                {key: "6", content: "Picture list and picture transparency", path: "picture-opacity"},
                 {key: "7", content: "Easy tab", path: "to-do"},
                 {key: "8", content: "Easy JS Almanac", path: "to-do"},
                 {key: "9", content: "Single button show/hide a playlist contraction expansion", path: "to-do"},

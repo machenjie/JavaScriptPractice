@@ -3,6 +3,7 @@ let webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const LodashWebpackPlugin = require("lodash-webpack-plugin");
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
     mode: "development",
@@ -11,7 +12,7 @@ module.exports = {
     ],
     output: {
         filename: "build.js",
-        path: path.resolve("./dist")
+        path: path.resolve("./dist/")
     },
     devServer: {
         contentBase : "./dist",
@@ -72,8 +73,9 @@ module.exports = {
             template: path.resolve("./src/index.html"),
             filename: "./index.html"
         }),
+        new CopyWebpackPlugin([{from: "./src/img/", to: "./img/"},]),
         new LodashWebpackPlugin,
-        new VueLoaderPlugin
+        new VueLoaderPlugin,
     ],
     resolve: {
         extensions: ['.js', '.vue'],
