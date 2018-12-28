@@ -20,7 +20,7 @@
                 {key: "4", content: "Pop-up dialog", path: "popup-dialog"},
                 {key: "5", content: "Modify the css of the div", path: "css-modify"},
                 {key: "6", content: "Picture list and picture transparency", path: "picture-opacity"},
-                {key: "7", content: "Easy tab", path: "to-do"},
+                {key: "7", content: "Easy nav tab", path: "easy-nav-tab"},
                 {key: "8", content: "Easy JS Almanac", path: "to-do"},
                 {key: "9", content: "Single button show/hide a playlist contraction expansion", path: "to-do"},
                 {key: "10", content: "Prompt box effect", path: "to-do"},

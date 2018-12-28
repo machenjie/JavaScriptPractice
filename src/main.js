@@ -12,6 +12,7 @@ import SumArray from "./components/sum-array";
 import PopupDialog from "./components/popup-dialog";
 import CSSModify from "./components/css-modify";
 import PictureOpacity from "./components/picture-opacity";
+import EasyNavTab from "./components/easy-nav-tab";
 import FuncInvoke from "./components/func-invoke";
 
 Vue.use(VueRouter);
@@ -29,6 +30,7 @@ const routes = [
     { path: '/popup-dialog', component: PopupDialog},
     { path: '/css-modify', component: CSSModify},
     { path: '/picture-opacity', component: PictureOpacity},
+    { path: '/easy-nav-tab', component: EasyNavTab},
     { path: '/to-do', component: TODO },
 ];
 
