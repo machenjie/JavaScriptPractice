@@ -1,8 +1,8 @@
 <template>
     <div id="root">
         <ul id="nav-tabs">
-            <li class="tab" v-for="tabItem in tabItemList" :key="tabItem.key" :style="tabChangeList[tabItem.key-1].tabStyle"
-                @mouseover="changeTabStyle(tabItem.key)">
+            <li class="tab" v-for="tabItem in tabItemList" :key="tabItem.key" :style="tabChangeList[tabItem.key-1].style"
+                @mouseover="tabListMouseOver(tabItem.key)">
                 {{tabItem.title}}
             </li>
         </ul>
@@ -21,7 +21,7 @@
 <script>
     const INIT_TAB_CHANGE= {
         show: false,
-        tabStyle: {
+        style: {
             backgroundColor: "#000000",
             color: "#ffffff",
         }
@@ -29,13 +29,13 @@
 
     const HOVER_TAB_CHANGE={
         show: true,
-        tabStyle: {
+        style: {
             backgroundColor: "#707070",
             color: "#0f0f0f",
         }
     }
 
-    function initTabStyle(tabItemList) {
+    function initTabChangeList(tabItemList) {
         let tabChangeList = new Array(tabItemList.length);
         for(let i=0; i<tabChangeList.length; i++){
             tabChangeList[i] = INIT_TAB_CHANGE;
@@ -79,7 +79,7 @@
                         {key: "9", content: "Countdown clock (100 seconds)"},
                     ], },
             ];
-            let tabChangeList = initTabStyle(tabItemList);
+            let tabChangeList = initTabChangeList(tabItemList);
             tabChangeList[0] = HOVER_TAB_CHANGE;
             return {
                 tabItemList,
@@ -87,10 +87,10 @@
             }
         },
         methods: {
-            changeTabStyle: function (key) {
-                this.tabChangeList = initTabStyle(this.tabItemList);
+            tabListMouseOver: function (key) {
+                this.tabChangeList = initTabChangeList(this.tabItemList);
                 this.tabChangeList[key-1] = HOVER_TAB_CHANGE;
-                this.tabChangeList = Object.assign({}, this.tabChangeList);
+                this.tabChangeList = this.tabChangeList;
             },
         }
     }

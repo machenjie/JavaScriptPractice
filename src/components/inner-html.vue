@@ -48,7 +48,6 @@
                 for (let i=0; i<this.news.length; i++){
                     this.news[i].tip = news[i].innerHTML;
                 }
-                this.news=Object.assign({}, this.news);
             });
         }
     }

@@ -13,6 +13,9 @@ import PopupDialog from "./components/popup-dialog";
 import CSSModify from "./components/css-modify";
 import PictureOpacity from "./components/picture-opacity";
 import EasyNavTab from "./components/easy-nav-tab";
+import JSAlmanac from "./components/js-almanac";
+import BeautyGirl from "./components/beauty-girl";
+import CheckboxUse from "./components/checkbox-use";
 import FuncInvoke from "./components/func-invoke";
 
 Vue.use(VueRouter);
@@ -31,6 +34,9 @@ const routes = [
     { path: '/css-modify', component: CSSModify},
     { path: '/picture-opacity', component: PictureOpacity},
     { path: '/easy-nav-tab', component: EasyNavTab},
+    { path: '/js-almanac', component: JSAlmanac},
+    { path: '/beauty-girl', component: BeautyGirl},
+    { path: '/checkbox-use', component: CheckboxUse},
     { path: '/to-do', component: TODO },
 ];
 

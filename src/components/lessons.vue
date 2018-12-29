@@ -54,17 +54,17 @@
         },
         watch: {
             lessonList: function () {
-                this.lessonItemStyleList = Object.assign({}, initLessonStyleFromLessonList(this.lessonList));
+                this.lessonItemStyleList = initLessonStyleFromLessonList(this.lessonList);
             }
         },
         methods: {
             mouseOverLesson: function (ll, info) {
-                this.lessonItemStyleList = initLessonStyleFromLessonList(this.lessonList);
-                this.lessonItemStyleList[ll.key-1][info.key-1] = HOVER_LESSON_STYLE;
-                this.lessonItemStyleList = Object.assign({}, this.lessonItemStyleList);
+                let lessonItemStyleList = initLessonStyleFromLessonList(this.lessonList);
+                lessonItemStyleList[ll.key-1][info.key-1] = HOVER_LESSON_STYLE;
+                this.lessonItemStyleList = lessonItemStyleList;
             },
             mouseOutLesson: function () {
-                this.lessonItemStyleList = Object.assign({}, initLessonStyleFromLessonList(this.lessonList));
+                this.lessonItemStyleList = initLessonStyleFromLessonList(this.lessonList);
             }
         },
     }

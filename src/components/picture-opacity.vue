@@ -1,7 +1,7 @@
 <template>
     <ul id="root">
         <li id="img-item-area" v-for="image in images" :key="image.key">
-            <img :src="'img/'+image.key+'.jpg'" :style="imgStyleList[image.key-1]"
+            <img :src="'img/carlogo/'+image.key+'.jpg'" :style="imgStyleList[image.key-1]"
                  @mouseover="changeOpacity(image.key-1)"
                  @mouseout="resetOpacity"
             >
@@ -51,11 +51,10 @@
             changeOpacity: function (index) {
                 let imgStyleList = initImagesStyleFromImageList(this.images);
                 imgStyleList[index] = HOVER_IMG_STYLE;
-                this.imgStyleList = Object.assign({}, imgStyleList);
+                this.imgStyleList = imgStyleList;
             },
             resetOpacity: function () {
-                let imgStyleList = initImagesStyleFromImageList(this.images);
-                this.imgStyleList = Object.assign({}, imgStyleList);
+                this.imgStyleList = initImagesStyleFromImageList(this.images);
             }
         }
     }
