@@ -27,10 +27,8 @@
             ]},
         {key:"3", show: false, infoList:[
                 {key: "1", content: "Count down", path: "count-down"},
-                {key: "2", content: "Determine if the number is a two-digit number", path: "to-do"},
-                {key: "3", content: "Web calculator", path: "to-do"},
-                {key: "4", content: "Simple web clock", path: "to-do"},
-                {key: "5", content: "Countdown clock (100 seconds)", path: "to-do"},
+                {key: "2", content: "Web calculator", path: "web-calculator"},
+                {key: "3", content: "Simple web clock", path: "to-do"},
             ]},
         {key:"4", show: false, infoList:[
                 {key: "1", content: "SetTimeout application", path: "to-do"},

@@ -17,6 +17,7 @@ import JSAlmanac from "./components/js-almanac";
 import BeautyGirl from "./components/beauty-girl";
 import CheckboxUse from "./components/checkbox-use";
 import CountDown from "./components/count-down";
+import WebCalculator from  "./components/web-calculator";
 import FuncInvoke from "./components/func-invoke";
 
 Vue.use(VueRouter);
@@ -39,6 +40,7 @@ const routes = [
     { path: '/beauty-girl', component: BeautyGirl},
     { path: '/checkbox-use', component: CheckboxUse},
     { path: '/count-down', component: CountDown},
+    { path: '/web-calculator', component: WebCalculator},
     { path: '/to-do', component: TODO },
 ];
 
