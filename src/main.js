@@ -16,6 +16,7 @@ import EasyNavTab from "./components/easy-nav-tab";
 import JSAlmanac from "./components/js-almanac";
 import BeautyGirl from "./components/beauty-girl";
 import CheckboxUse from "./components/checkbox-use";
+import CountDown from "./components/count-down";
 import FuncInvoke from "./components/func-invoke";
 
 Vue.use(VueRouter);
@@ -37,6 +38,7 @@ const routes = [
     { path: '/js-almanac', component: JSAlmanac},
     { path: '/beauty-girl', component: BeautyGirl},
     { path: '/checkbox-use', component: CheckboxUse},
+    { path: '/count-down', component: CountDown},
     { path: '/to-do', component: TODO },
 ];
 
