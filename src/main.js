@@ -19,6 +19,7 @@ import CheckboxUse from "./components/checkbox-use";
 import CountDown from "./components/count-down";
 import WebCalculator from  "./components/web-calculator";
 import WebClock from "./components/web-clock";
+import SubNavTab from "./components/sub-nav-tab";
 import FuncInvoke from "./components/func-invoke";
 
 Vue.use(VueRouter);
@@ -43,6 +44,7 @@ const routes = [
     { path: '/count-down', component: CountDown},
     { path: '/web-calculator', component: WebCalculator},
     { path: '/web-clock', component: WebClock},
+    { path: '/sub-nav-tab', component: SubNavTab},
     { path: '/to-do', component: TODO },
 ];
 

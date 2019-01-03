@@ -31,7 +31,7 @@
                 {key: "3", content: "Simple web clock", path: "web-clock"},
             ]},
         {key:"4", show: false, infoList:[
-                {key: "1", content: "SetTimeout application", path: "to-do"},
+                {key: "1", content: "Sub nav tab", path: "sub-nav-tab"},
                 {key: "2", content: "Automatically play a slideshow effect", path: "to-do"},
                 {key: "3", content: "Automatically change direction and slide effect", path: "to-do"},
                 {key: "4", content: "Agruments application one to find the sum of the function parameters", path: "to-do"},
