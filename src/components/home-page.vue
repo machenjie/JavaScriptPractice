@@ -28,7 +28,7 @@
         {key:"3", show: false, infoList:[
                 {key: "1", content: "Count down", path: "count-down"},
                 {key: "2", content: "Web calculator", path: "web-calculator"},
-                {key: "3", content: "Simple web clock", path: "to-do"},
+                {key: "3", content: "Simple web clock", path: "web-clock"},
             ]},
         {key:"4", show: false, infoList:[
                 {key: "1", content: "SetTimeout application", path: "to-do"},

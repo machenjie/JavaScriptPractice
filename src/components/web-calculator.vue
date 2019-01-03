@@ -1,9 +1,12 @@
 <template>
     <div id="root">
-        <div id="input-area"></div>
-        <div id="current-area"></div>
+        <div id="input-area">{{inputText}}</div>
+        <div id="current-area">{{currentText}}</div>
         <ol id="key-area">
-            <li v-for="key in keyList" :key="key.key" :style="keyStyleList[key.key-1]">{{key.content}}</li>
+            <li v-for="key in keyList" :key="key.key" :style="keyStyleList[key.key-1]"
+                @click="keyInput(key.content)">
+                {{key.content}}
+            </li>
         </ol>
     </div>
 </template>
@@ -11,22 +14,22 @@
 <script>
     const OP_INIT_STYLE = {
         height: "60px",
-        width: "80px",
+        width: "100px",
         lineHeight: "60px",
     };
     const EQUAL_INIT_STYLE = {
-        height: "120px",
-        width: "80px",
-        lineHeight: "120px",
+        height: "140px",
+        width: "100px",
+        lineHeight: "140px",
     };
     const NUMBER_INIT_STYLE = {
         height: "60px",
-        width: "80px",
+        width: "100px",
         lineHeight: "60px",
     };
     const ZERO_INIT_STYLE = {
         height: "60px",
-        width: "160px",
+        width: "220px",
         lineHeight: "60px"
     };
     const KEY_TYPE_STYLE_MAP = new Map([
@@ -46,8 +49,8 @@
         name: "web-calculator",
         data: function () {
             let keyList=[
-                {key: 1, keyType: "OP_TYPE", content: "×"},
-                {key: 2, keyType: "OP_TYPE", content: "÷"},
+                {key: 1, keyType: "OP_TYPE", content: "*"},
+                {key: 2, keyType: "OP_TYPE", content: "/"},
                 {key: 3, keyType: "OP_TYPE", content: "%"},
                 {key: 4, keyType: "OP_TYPE", content: "C"},
                 {key: 5, keyType: "OP_TYPE", content: "-"},
@@ -66,9 +69,42 @@
                 {key: 18, keyType: "ZERO_TYPE", content: "0"},
             ];
             let keyStyleList = initKeyStyle(keyList);
+            let inputText = "";
+            let currentText = "";
             return {
                 keyList,
                 keyStyleList,
+                inputText,
+                currentText,
+            }
+        },
+        methods: {
+            keyInput: function (content) {
+                const op_regex = /[\.\*\/\+\-]/
+                if (content === "C"){
+                    this.currentText = "";
+                    this.inputText = "";
+                    return;
+                }
+                if (this.currentText === "" && op_regex.test(content)){
+                    this.currentText = "0";
+                }
+                if (this.currentText === "0" && !op_regex.test(content)){
+                    this.currentText = "";
+                }
+                if (content !== "="){
+                    this.currentText = this.currentText+content;
+                }
+                else{
+                    this.inputText = this.currentText+content;
+                    try {
+                        this.currentText = eval(this.currentText ) + "";
+                    }
+                    catch (e) {
+                        this.inputText = "";
+                        this.currentText = "0";
+                    }
+                }
             }
         }
     }
@@ -79,31 +115,56 @@
         display: inline-block;
         margin: 0px;
         padding: 0px;
-        width: 320px;
+        width: 500px;
     }
     #input-area{
         margin: 0px;
-        padding: 0px;
-        height: 40px;
-        background-color: #ff5514;
+        padding-left: 20px;
+        padding-right: 20px;
+        height: 30px;
+        text-align: right;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        background-color: #e2e2e2;
+        color: #505050;
+        font-size: 1.5rem;
+        line-height: 30px;
+        overflow: hidden;
     }
     #current-area{
         margin: 0px;
-        padding: 0px;
-        height: 80px;
-        background-color: #ff5514;
+        padding-left: 20px;
+        padding-right: 20px;
+        height: 40px;
+        text-align: right;
+        background-color: #e2e2e2;
+        color: #505050;
+        font-size: 2.5rem;
+        line-height: 40px;
+        overflow: hidden;
     }
     #key-area{
         float: right;
         margin: 0px;
-        padding: 0px;
+        padding-left: 20px;
+        padding-bottom: 20px;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        background-color: #3e3e3e;
     }
     #key-area li{
         float: right;
-        margin: 0px;
+        margin-top: 20px;
+        margin-right: 20px;
+        border-radius: 5px;
         padding: 0px;
-        background-color: #fcfcfc;
+        background: linear-gradient(#a5a5a5, #7a7a7a,#505050);
+        font-size: 2rem;
+        color: #e2e2e2;
         cursor: pointer;
         list-style-type: none;
+    }
+    #key-area li:hover{
+        background: linear-gradient(#505050,#7a7a7a,#a5a5a5);
     }
 </style>
