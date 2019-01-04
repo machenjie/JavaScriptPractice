@@ -20,6 +20,7 @@ import CountDown from "./components/count-down";
 import WebCalculator from  "./components/web-calculator";
 import WebClock from "./components/web-clock";
 import SubNavTab from "./components/sub-nav-tab";
+import AutoplaySlide from "./components/autoplay-slide";
 import FuncInvoke from "./components/func-invoke";
 
 Vue.use(VueRouter);
@@ -45,6 +46,7 @@ const routes = [
     { path: '/web-calculator', component: WebCalculator},
     { path: '/web-clock', component: WebClock},
     { path: '/sub-nav-tab', component: SubNavTab},
+    { path: '/autoplay-slide', component: AutoplaySlide},
     { path: '/to-do', component: TODO },
 ];
 

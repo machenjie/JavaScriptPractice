@@ -19,7 +19,6 @@
         mounted: function () {
             this.$nextTick(function () {
                 //when page open, dropdown toggle
-                $('.dropdown-toggle').dropdown('toggle');
                 $('.dropdown-toggle').dropdown('update');
             });
         }
