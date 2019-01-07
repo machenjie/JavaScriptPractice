@@ -43,11 +43,11 @@
                 {key: "4", content: "Follow the mouse movement", path: "mouse-move"},
                 {key: "5", content: "Custom right-click menu", path: "custom-context-menu"},
                 {key: "6", content: "Control box with keyboard", path: "control-box"},
-                {key: "7", content: "Div flashes", path: "to-do"},
+                {key: "7", content: "Div flash", path: "div-flash"},
             ]},
         {key:"6", show: false, infoList:[
-                {key: "1", content: "Perfect drag", path: "to-do"},
-                {key: "2", content: "Imitation Tencent microblogging effect", path: "to-do"},
+                {key: "1", content: "div drag", path: "div-drag"},
+                {key: "2", content: "Imitation Tencent blog effect", path: "tencent-blog"},
                 {key: "3", content: "Custom multi-level right-click menu", path: "to-do"},
             ]},
         {key:"7", show: false, infoList:[

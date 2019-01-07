@@ -29,6 +29,9 @@ import BlockContextMenu from "./components/block-context-menu";
 import MouseMove from "./components/mouse-move";
 import CustomContextMenu from "./components/custom-context-menu";
 import ControlBox from "./components/control-box";
+import DivFlash from "./components/div-flash";
+import DivDrag from "./components/div-drag";
+import TencentBlog from "./components/tencent-blog";
 import FuncInvoke from "./components/func-invoke";
 
 Vue.use(VueRouter);
@@ -63,6 +66,9 @@ const routes = [
     { path: '/mouse-move', component: MouseMove},
     { path: '/custom-context-menu', component: CustomContextMenu},
     { path: '/control-box', component: ControlBox},
+    { path: '/div-flash', component: DivFlash},
+    { path: '/div-drag', component: DivDrag},
+    { path: '/tencent-blog', component: TencentBlog},
     { path: '/to-do', component: TODO },
 ];
 
