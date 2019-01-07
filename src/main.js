@@ -21,6 +21,14 @@ import WebCalculator from  "./components/web-calculator";
 import WebClock from "./components/web-clock";
 import SubNavTab from "./components/sub-nav-tab";
 import AutoplaySlide from "./components/autoplay-slide";
+import FocusHighlight from "./components/focus-highlight";
+import StarRating from "./components/star-rating";
+import MouseCoordinates from "./components/mouse-coordinates";
+import KeyCode from "./components/key-code";
+import BlockContextMenu from "./components/block-context-menu";
+import MouseMove from "./components/mouse-move";
+import CustomContextMenu from "./components/custom-context-menu";
+import ControlBox from "./components/control-box";
 import FuncInvoke from "./components/func-invoke";
 
 Vue.use(VueRouter);
@@ -47,6 +55,14 @@ const routes = [
     { path: '/web-clock', component: WebClock},
     { path: '/sub-nav-tab', component: SubNavTab},
     { path: '/autoplay-slide', component: AutoplaySlide},
+    { path: '/focus-highlight', component: FocusHighlight},
+    { path: '/star-rating', component: StarRating},
+    { path: '/mouse-coordinates', component: MouseCoordinates},
+    { path: '/key-code', component: KeyCode},
+    { path: '/block-context-menu', component: BlockContextMenu},
+    { path: '/mouse-move', component: MouseMove},
+    { path: '/custom-context-menu', component: CustomContextMenu},
+    { path: '/control-box', component: ControlBox},
     { path: '/to-do', component: TODO },
 ];
 
