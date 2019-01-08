@@ -31,6 +31,8 @@
             document.oncontextmenu = function () {
                 _this.contextMenuX = event.clientX;
                 _this.contextMenuY = event.clientY;
+                _this.contextMenuX = _this.contextMenuX+90>window.innerWidth?window.innerWidth-90: _this.contextMenuX;
+                _this.contextMenuY = _this.contextMenuY+100>window.innerHeight?window.innerHeight-100:_this.contextMenuY;
                 _this.contextMenuShow = true;
                 return false;
             }

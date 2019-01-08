@@ -17,14 +17,19 @@
                         <img :src='"img/blog/face"+avatar.key+".gif"'>
                     </li>
                 </ul>
-                <input id="name" type="text" name="name" v-model="name">
+                <input ref="name" id="name" type="text" name="name" v-model="name">
             </div>
             <div id="words">
-                <input type="text" name="words" v-model="words">
+                <textarea ref="words" v-model="words"></textarea>
             </div>
             <div id="footer">
                 <button class="btn btn-info" @click="addComment">广播</button>
-                还能输入<span>{{140-words.length}}</span>个字
+                <div v-if="140-words.length>=0">
+                    还能输入<span>{{140-words.length}}</span>个字
+                </div>
+                <div v-else>
+                    已超出<span style='color: #ff5154; font-weight: bold'>{{words.length-140}}</span>个字
+                </div>
             </div>
         </div>
         <div id="comment-area">
@@ -126,16 +131,34 @@
                 })
             },
             addComment: function () {
-                let time = new Date().format("MM月dd日 hh:mm");
-                this.commentList = [{
-                    key: this.commentList.length+1,
-                    faceSrc: "img/blog/face"+this.selectAvatar+".gif",
-                    name: this.name,
-                    comment: this.words,
-                    date: time,
-                }].concat(this.commentList);
-                this.name = "";
-                this.words = "";
+                if (/^\s*$/.test(this.name)){
+                    alert("请输入名字！");
+                    this.$refs.name.focus();
+                }
+                else if(!/^[\u4e00-\u9fa5\w]{2,8}$/g.test(this.name)){
+                    alert("姓名由2-8位字母、数字、下划线、汉字组成！");
+                    this.$refs.name.focus();
+                }
+                else if(/^\s*$/.test(this.words)){
+                    alert("请输入评论！");
+                    this.$refs.words.focus();
+                }
+                else if(140<this.words.length){
+                    alert("你输入的内容已超出限制，请检查！");
+                    this.$refs.words.focus();
+                }
+                else {
+                    let time = new Date().format("MM月dd日 hh:mm");
+                    this.commentList = [{
+                        key: this.commentList.length + 1,
+                        faceSrc: "img/blog/face" + this.selectAvatar + ".gif",
+                        name: this.name,
+                        comment: this.words,
+                        date: time,
+                    }].concat(this.commentList);
+                    this.name = "";
+                    this.words = "";
+                }
             },
         },
     }
@@ -206,7 +229,7 @@
         padding: 0px;
 
     }
-    #words input{
+    #words textarea{
         display: block;
         margin: 0px;
         padding: 5px;

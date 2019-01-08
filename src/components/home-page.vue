@@ -48,7 +48,7 @@
         {key:"6", show: false, infoList:[
                 {key: "1", content: "div drag", path: "div-drag"},
                 {key: "2", content: "Imitation Tencent blog effect", path: "tencent-blog"},
-                {key: "3", content: "Custom multi-level right-click menu", path: "to-do"},
+                {key: "3", content: "Custom multi-level context menu", path: "multi-level-context-menu"},
             ]},
         {key:"7", show: false, infoList:[
                 {key: "1", content: "Automatic carousel advertising (buffer effect)", path: "to-do"},

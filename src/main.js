@@ -32,6 +32,7 @@ import ControlBox from "./components/control-box";
 import DivFlash from "./components/div-flash";
 import DivDrag from "./components/div-drag";
 import TencentBlog from "./components/tencent-blog";
+import MultiLevelContextMenu from "./components/multi-level-context-menu";
 import FuncInvoke from "./components/func-invoke";
 
 Vue.use(VueRouter);
@@ -69,6 +70,7 @@ const routes = [
     { path: '/div-flash', component: DivFlash},
     { path: '/div-drag', component: DivDrag},
     { path: '/tencent-blog', component: TencentBlog},
+    { path: '/multi-level-context-menu', component: MultiLevelContextMenu},
     { path: '/to-do', component: TODO },
 ];
 
