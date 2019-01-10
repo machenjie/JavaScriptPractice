@@ -1,21 +1,17 @@
 <template>
     <div id="root">
-        <ul id="img-area">
+        <ul id="img-area" ref="box" :style='{top: imageTop+"px"}'>
             <li v-for="img in imgList" :key="img.key"
                 @mouseover="clearTimeInterval"
-                @mouseout="addTimeInterval"
-            >
-                <img :src='"img/slideads/"+img.key+".jpg"'
-                     v-if="currentKey===img.key || lastKey===img.key"
-                     :style="{opacity: currentKey===img.key?currentImgOpacity:lastImgOpacity}">
+                @mouseout="addTimeInterval">
+                <img :src='"img/slideads/"+img.key+".jpg"'>
             </li>
         </ul>
         <ul id="circle-area">
             <li v-for="img in imgList" :key="img.key"
                 :style='{backgroundColor: currentKey===img.key?"#ff2c36":"#ff7c57", opacity: currentKey===img.key?1:0.7}'
                 @mouseover="mouseOver(img.key)"
-                @mouseout="addTimeInterval"
-            >
+                @mouseout="addTimeInterval">
                 {{img.key}}
             </li>
         </ul>
@@ -24,47 +20,27 @@
 
 <script>
     export default {
-        name: "autoplay-slide",
+        name: "autoplay-slide-updown",
         data: function () {
-          let imgList = [
-              {key: 1},
-              {key: 2},
-              {key: 3},
-              {key: 4},
-              {key: 5},
-          ];
-          let currentKey = 1;
-          let lastKey = 5;
-          let currentImgOpacity = 1;
-          let lastImgOpacity = 0;
-          return {
-              imgList,
-              currentKey,
-              lastKey,
-              currentImgOpacity,
-              lastImgOpacity,
-          };
+            let imgList = [
+                {key: 1},
+                {key: 2},
+                {key: 3},
+                {key: 4},
+                {key: 5},
+            ];
+            let currentKey = 1;
+            let addend=1;
+            let imageTop = 0;
+            return {
+                imgList,
+                currentKey,
+                imageTop,
+                addend,
+            };
         },
         methods: {
-            tweenCurent: function (startValue, endValue) {
-                function animate () {
-                    if (TWEEN.update()) {
-                        requestAnimationFrame(animate)
-                    }
-                }
-
-                let _this=this;
-                new TWEEN.Tween({ num: startValue })
-                    .to({num: endValue }, 1000)
-                    .easing(TWEEN.Easing.Quadratic.In)
-                    .onUpdate(function (object) {
-                        _this.currentImgOpacity = object.num;
-                    })
-                    .start();
-
-                animate();
-            },
-            tweenLast: function (startValue, endValue) {
+            tweenTop: function (startValue, endValue) {
                 function animate () {
                     if (TWEEN.update()) {
                         requestAnimationFrame(animate)
@@ -76,7 +52,7 @@
                     .to({num: endValue }, 1000)
                     .easing(TWEEN.Easing.Quadratic.Out)
                     .onUpdate(function (object) {
-                        _this.lastImgOpacity = object.num;
+                        _this.imageTop = object.num;
                     })
                     .start();
 
@@ -86,13 +62,17 @@
                 let _this = this;
                 if (typeof(this.interval) === "undefined") {
                     this.interval = setInterval(function () {
-                        _this.lastKey = _this.currentKey;
-                        _this.currentKey = _this.currentKey + 1;
+                        let lastKey = _this.currentKey;
+                        _this.currentKey = _this.currentKey + _this.addend;
                         if (_this.currentKey == 6) {
-                            _this.currentKey = 1;
+                            _this.currentKey = 4;
+                            _this.addend = -1;
+                        } else if (_this.currentKey == 0) {
+                            _this.currentKey = 2;
+                            _this.addend = 1;
                         }
-                        _this.tweenCurent(0, 1);
-                        _this.tweenLast(1, 0);
+                        let height = _this.$refs.box.childNodes[0].clientHeight;
+                        _this.tweenTop(-1 * height * (lastKey - 1), -1 * height * (_this.currentKey - 1));
                     }, 2000);
                 }
             },
@@ -104,7 +84,10 @@
             },
             mouseOver: function (key) {
                 this.clearTimeInterval();
+                let lastKey = this.currentKey;
                 this.currentKey = key;
+                let height = this.$refs.box.childNodes[0].clientHeight;
+                this.tweenTop(-1*height*(lastKey-1), -1*height*(this.currentKey-1));
             },
         },
         mounted() {
@@ -129,21 +112,21 @@
         height: 186px;
         border: 8px solid #dad7e0;
         border-radius: 8px;
+        overflow: hidden;
     }
     #img-area{
         display: inline-block;
+        position: absolute;
+        left: 0px;
         margin: 0px;
         padding: 0px;
     }
     #img-area li{
         display: inline-block;
-        position: absolute;
-        left: 0px;
-        top: 0px;
         list-style-type: none;
     }
     #img-area li img{
-        opacity: 0;
+        opacity: 1;
     }
     #circle-area{
         position: absolute;

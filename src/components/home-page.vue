@@ -32,7 +32,7 @@
             ]},
         {key:"4", show: false, infoList:[
                 {key: "1", content: "Sub nav tab", path: "sub-nav-tab"},
-                {key: "2", content: "Automatically play slide", path: "autoplay-slide"},
+                {key: "2", content: "Automatically play slide(in-out)", path: "autoplay-slide"},
                 {key: "3", content: "The current input box is highlighted", path: "focus-highlight"},
                 {key: "4", content: "Star rating system", path: "star-rating"},
             ]},
@@ -51,8 +51,8 @@
                 {key: "3", content: "Custom multi-level context menu", path: "multi-level-context-menu"},
             ]},
         {key:"7", show: false, infoList:[
-                {key: "1", content: "Automatic carousel advertising (buffer effect)", path: "to-do"},
-                {key: "2", content: "Picture switching (Loading effect)", path: "to-do"},
+                {key: "1", content: "Automatically play slide(up-down)", path: "autoplay-slide-updown"},
+                {key: "2", content: "Picture switching (Loading animation)", path: "pic-load-animation"},
                 {key: "3", content: "Move effect (moving by track)", path: "to-do"},
             ]},
         {key:"8", show: false, infoList:[
