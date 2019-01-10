@@ -1,26 +1,26 @@
 <template>
-    <ul ref="root" :style='{display: showAll?"block":"none"}'
-    >
+    <ul ref="root" :style='{display: showAll?"block":"none"}'>
         <li v-for="menu in menuList" :key="menu.key">
-            <div class="content">
+            <div class="content" v-if="menu.content.length!==0">
                 {{menu.content}}
-                <div class="arrow" v-if="menu.secondMenuList.length !== 0"><div></div></div>
+                <div class="arrow" v-if="menu.menuList.length!==0"><div></div></div>
             </div>
-            <ul ref="menuUL" v-if="menu.secondMenuList.length!==0"
-                :style='{display: showAll?"block":"none"}'
-            >
-               <li v-for="secondMenu in menu.secondMenuList" :key="secondMenu.key">
-                   <div class="content">
+            <div v-else class="content split"></div>
+            <ul ref="menuUL" v-if="menu.menuList.length!==0&&menu.content.length!==0"
+                :style='{display: showAll?"block":"none"}'>
+               <li v-for="secondMenu in menu.menuList" :key="secondMenu.key">
+                   <div class="content" v-if="secondMenu.content.length!==0">
                        {{secondMenu.content}}
-                       <div class="arrow" v-if="secondMenu.thirdMenuList.length!== 0"><div></div></div>
+                       <div class="arrow" v-if="secondMenu.menuList.length!==0"><div></div></div>
                    </div>
-                   <ul  ref="secondMenuUL" v-if="secondMenu.thirdMenuList.length!==0"
-                        :style='{display: showAll?"block":"none"}'
-                   >
-                       <li v-for="thirdMenu in secondMenu.thirdMenuList" :key="thirdMenu.key">
-                           <div class="content">
+                   <div v-else class="content split"></div>
+                   <ul  ref="secondMenuUL" v-if="secondMenu.menuList.length!==0&&secondMenu.content.length!==0"
+                        :style='{display: showAll?"block":"none"}'>
+                       <li v-for="thirdMenu in secondMenu.menuList" :key="thirdMenu.key">
+                           <div class="content" v-if="thirdMenu.content.length!==0">
                                {{thirdMenu.content}}
                            </div>
+                           <div v-else class="content split"></div>
                        </li>
                    </ul>
                </li>
@@ -42,16 +42,59 @@
         name: "multi-level-context-menu",
         data: function () {
             let menuList = [
-                {key: 1, content: 12344444, secondMenuList: [
-                    ]},
-                {key: 2, content: 2222, secondMenuList: [
-                    ]},
-                {key: 3, content: 3333, secondMenuList: [
-                        {key: 1, content: 1454, thirdMenuList: [
-                                {key: 1, content: 1234},
-                                {key: 2, content: 224},
+                {key: 1, content: "第一课", menuList: [
+                        {key: 1, content: "网页特效原理分析", menuList: [
                             ]},
-                        {key: 2, content: 22, thirdMenuList: [
+                        {key: 2, content:"响应用户操作", menuList: [
+                            ]},
+                        {key: 3, content:"", menuList: [
+                            ]},
+                        {key: 4, content:"提示框效果", menuList: [
+                            ]},
+                        {key: 5, content:"事件驱动", menuList: [
+                            ]},
+                        {key: 6, content:"元素属性操作", menuList: [
+                            ]},
+                    ]},
+                {key: 2, content: "第二课", menuList: [
+                        {key: 1, content: "改变网页背景颜色", menuList: [
+                            ]},
+                        {key: 2, content:"函数传参", menuList: [
+                            ]},
+                        {key: 3, content: "高重用性函数的编写", menuList: [
+                            ]},
+                        {key: 4, content: "126邮箱全选效果", menuList: [
+                            ]},
+                        {key: 5, content: "循环及遍历操作", menuList: [
+                            ]},
+                    ]},
+                {key: 3, content:"", menuList: [
+
+                    ]},
+                {key: 4, content: "第三课", menuList: [
+                        {key: 1, content: "JavaScript组成", menuList: [
+                                {key: 1, content: "ECMAScript"},
+                                {key: 2, content:"DOM"},
+                                {key: 3, content: "BOM"},
+                                {key: 4, content: ""},
+                                {key: 5, content: "JavaScript兼容性来源"},
+                            ]},
+                        {key: 2, content:"JavaScript出现的位置、优缺点", menuList: [
+                            ]},
+                        {key: 3, content: "变量、类型、typeof、数据类型转换、变量作用域", menuList: [
+                            ]},
+                        {key: 4, content: "闭包", menuList: [
+                                {key: 1, content: "什么是闭包"},
+                                {key: 2, content:"简单应用"},
+                                {key: 3, content: "闭包缺点"},
+                            ]},
+                        {key: 5, content: "运算符", menuList: [
+                            ]},
+                        {key: 6, content: "程序流程控制", menuList: [
+                            ]},
+                        {key: 7, content: "定时器的使用", menuList: [
+                                {key: 1, content: "setInterval"},
+                                {key: 2, content:"setTimeout"},
                             ]},
                     ]},
             ];
@@ -64,12 +107,6 @@
         mounted() {
             let _this = this;
             this.$nextTick(function () {
-                // let allULList = _this.$refs.root.getElementsByTagName("ul");
-                // for(let i=0; i<allULList.length; i++) {
-                //     allULList[i].style.top = allULList[i].parentNode.clientHeight/2+"px";
-                //     allULList[i].style.left =  allULList[i].parentNode.clientWidth+"px";
-                // }
-
                 let allContentList = _this.$refs.root.getElementsByClassName("content");
                 let widthMap = new Map();
                 for(let i=0; i<allContentList.length; i++) {
@@ -87,33 +124,64 @@
                     }
                 }
 
+                let allULList = _this.$refs.root.getElementsByTagName("ul");
+                let zIndex = 1;
+                _this.$refs.root.style.zIndex = zIndex++;
+                for(let i=0; i<allULList.length; i++) {
+                    allULList[i].style.zIndex = zIndex++;
+                }
+
                 _this.showAll = false;
 
-                let showTimer = null;
-                let hideTimer = null;
                 let allLIList = _this.$refs.root.getElementsByTagName("li");
                 for(let i=0; i<allLIList.length; i++) {
                     allLIList[i].onmouseover = function () {
+                        let _liThis = this;
                         let ul = allLIList[i].getElementsByTagName("ul");
                         if (ul[0]){
-                            clearTimeout(hideTimer);
-                            showTimer = setTimeout(function () {
-                                for (i = 0; i < allLIList[i].parentNode.children.length; i++) {
-                                    if ( allLIList[i].parentNode.children[i].getElementsByTagName("ul")[0]) {
-                                        allLIList[i].parentNode.children[i].getElementsByTagName("ul")[0].style.display = "none";
+                            if (typeof(_liThis.hideTimer) !== "undefined") {
+                                clearTimeout(_liThis.hideTimer);
+                                delete _liThis.hideTimer;
+                            }
+                            if (typeof(_liThis.showTimer) !== "undefined") {
+                                clearTimeout(_liThis.showTimer);
+                                delete _liThis.showTimer;
+                            }
+                            _liThis.showTimer = setTimeout(function () {
+                                for (let j = 0; j < allLIList[i].parentNode.children.length; j++) {
+                                    if ( allLIList[i].parentNode.children[j].getElementsByTagName("ul")[0]) {
+                                        allLIList[i].parentNode.children[j].getElementsByTagName("ul")[0].style.display = "none";
                                     }
                                 }
                                 ul[0].style.display = "block";
                                 ul[0].style.left = ul[0].parentNode.clientWidth+"px";
-                                ul[0].style.top  = ul[0].parentNode.clientHeight+"px";
-                                getOffset.left(ul[0])+ul[0].parentNode.clientWidth>window.innerWidth && (ul[0].style.left=-ul[0].parentNode.clientWidth+"px");
-                                getOffset.top(ul[0])+ul[0].parentNode.clientHeigth>window.innerHeight && (ul[0].style.top=-ul[0].parentNode.clientHeight+"px");
-                            }, 500);
+                                ul[0].style.top  = ul[0].parentNode.childNodes[0].clientHeight/2+"px";
+                                getOffset.left(ul[0])+ul[0].clientWidth>window.innerWidth && (ul[0].style.left=-ul[0].clientWidth+"px");
+                                getOffset.top(ul[0])+ul[0].clientHeight>window.innerHeight && (ul[0].style.top=-(ul[0].clientHeight-ul[0].parentNode.childNodes[0].clientHeight/2)+"px");
+                            }, 300);
                         }
                     };
 
                     allLIList[i].onmouseout = function () {
-                        
+                        let _liThis = this;
+                        let ul = allLIList[i].getElementsByTagName("ul");
+                        if (ul[0]){
+                            if (typeof(_liThis.hideTimer) !== "undefined") {
+                                clearTimeout(_liThis.hideTimer);
+                                delete _liThis.hideTimer;
+                            }
+                            if (typeof(_liThis.showTimer) !== "undefined") {
+                                clearTimeout(_liThis.showTimer);
+                                delete _liThis.showTimer;
+                            }
+                            _liThis.hideTimer = setTimeout(function () {
+                                for (let j = 0; j < allLIList[i].parentNode.children.length; j++) {
+                                    if ( allLIList[i].parentNode.children[j].getElementsByTagName("ul")[0]) {
+                                        allLIList[i].parentNode.children[j].getElementsByTagName("ul")[0].style.display = "none";
+                                    }
+                                }
+                            }, 300);
+                        }
                     };
                 }
 
@@ -143,23 +211,33 @@
     li{
         list-style-type: none;
         margin: 0px;
-        height: 25px;
         position: relative;
-        clear: both;
-    }
-    li:hover{
-        background-color: rgba(79, 79, 79, 0.6);;
     }
     .content{
-        float: left;
-        margin: 0px 0px 0px 25px;
-        padding: 0px 25px 0px 5px;
+        margin: 0px;
+        padding: 0px 25px 0px 25px;
         min-width: 1px;
         height: 25px;
-        border-left: 2px groove rgba(230, 230, 230, 0.1);
         line-height: 25px;
+        white-space: nowrap;
         text-align: left;
-        position: relative;
+        font-size:12px;
+        font-family: \5fae\8f6f\96c5\9ed1;
+    }
+    .content:hover{
+        background-color: rgba(79, 79, 79, 0.6);
+        cursor: pointer;
+    }
+    .split{
+        margin: 5px 0px 5px 0px;
+        padding: 0px;
+        width: available;
+        height: 0px;
+        border-top: 2px groove rgba(213, 213, 213, 0.2);
+    }
+    .split:hover{
+        background-color: transparent;
+        cursor: default;
     }
     .arrow{
         position: absolute;
@@ -184,10 +262,11 @@
         margin: 0px;
         padding: 0px;
         top: 0px;
-        left: 150px;
+        left: 0px;
         background-color: #ffffff;
         box-shadow:2px 2px 2px rgba(0,0,0,.6);
         border: 1px solid #dadada;
         border-radius: 2px;
+        z-index: 1;
     }
 </style>
