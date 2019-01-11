@@ -53,10 +53,10 @@
         {key:"7", show: false, infoList:[
                 {key: "1", content: "Automatically play slide(up-down)", path: "autoplay-slide-updown"},
                 {key: "2", content: "Picture switching (Loading animation)", path: "pic-load-animation"},
-                {key: "3", content: "Move effect (moving by track)", path: "to-do"},
+                {key: "3", content: "Move character by track", path: "move-character"},
             ]},
         {key:"8", show: false, infoList:[
-                {key: "1", content: "IPhone unlock effect", path: "to-do"},
+                {key: "1", content: "IPhone unlock effect", path: "iphone-unlock"},
                 {key: "2", content: "Custom scroll bar", path: "to-do"},
                 {key: "3", content: "Drag and drop a Clone", path: "to-do"},
                 {key: "4", content: "Drag and drop and change size", path: "to-do"},

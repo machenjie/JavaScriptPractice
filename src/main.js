@@ -35,6 +35,8 @@ import TencentBlog from "./components/tencent-blog";
 import MultiLevelContextMenu from "./components/multi-level-context-menu";
 import AutoplaySlideUpdown from "./components/autoplay-slide-updown";
 import PicLoadAnimation from "./components/pic-load-animation";
+import MoveCharacter from "./components/move-character";
+import IphoneUnlock from "./components/iphone-unlock";
 import FuncInvoke from "./components/func-invoke";
 
 Vue.use(VueRouter);
@@ -75,6 +77,8 @@ const routes = [
     { path: '/multi-level-context-menu', component: MultiLevelContextMenu},
     { path: '/autoplay-slide-updown', component: AutoplaySlideUpdown},
     { path: '/pic-load-animation', component: PicLoadAnimation},
+    { path: '/move-character', component: MoveCharacter},
+    { path: '/iphone-unlock', component: IphoneUnlock},
     { path: '/to-do', component: TODO },
 ];
 
